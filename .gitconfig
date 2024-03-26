@@ -1,0 +1,6 @@
+[user]
+	name = Yi-Ru Ding
+	email = dingyr0925@gmail.com
+[core]
+	excludesfile = /Users/yi-ruding/.gitexcludes
+	editor = code --wait

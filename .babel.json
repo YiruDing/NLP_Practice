@@ -1,0 +1,366 @@
+{
+  "{\"filename\":\"/Users/yi-ruding/Lab.CombineReducers/reducer.spec.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/Users/yi-ruding/Lab.CombineReducers\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [
+        "interopRequireDefault"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "./reducer",
+            "imported": [
+              "default",
+              "AUTHENTICATED",
+              "GOT_ROOMS",
+              "BOOK_ROOM"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "default",
+                "local": "reducer"
+              },
+              {
+                "kind": "named",
+                "imported": "AUTHENTICATED",
+                "local": "AUTHENTICATED"
+              },
+              {
+                "kind": "named",
+                "imported": "GOT_ROOMS",
+                "local": "GOT_ROOMS"
+              },
+              {
+                "kind": "named",
+                "imported": "BOOK_ROOM",
+                "local": "BOOK_ROOM"
+              }
+            ]
+          },
+          {
+            "source": "chai",
+            "imported": [
+              "expect"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "expect",
+                "local": "expect"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [],
+          "specifiers": []
+        }
+      }
+    },
+    "options": {
+      "filename": "/Users/yi-ruding/Lab.CombineReducers/reducer.spec.js",
+      "filenameRelative": "/Users/yi-ruding/Lab.CombineReducers/reducer.spec.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "reducer.spec.js",
+      "sourceFileName": "reducer.spec.js",
+      "sourceRoot": "/Users/yi-ruding/Lab.CombineReducers",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/Users/yi-ruding/Lab.CombineReducers",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "reducer.spec"
+    },
+    "ignored": false,
+    "code": "\"use strict\";\n\nvar _reducer = require(\"./reducer\");\n\nvar _reducer2 = _interopRequireDefault(_reducer);\n\nvar _chai = require(\"chai\");\n\nfunction _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }\n\ndescribe(\"Reducer\", () => {\n  it(\"should return the initial state\", () => {\n    (0, _chai.expect)((0, _reducer2.default)(undefined, {})).to.deep.equal({\n      user: {},\n      rooms: []\n    });\n  });\n\n  it(\"should handle AUTHENTICATED\", () => {\n    (0, _chai.expect)((0, _reducer2.default)({ user: {}, rooms: [] }, {\n      type: _reducer.AUTHENTICATED,\n      payload: { name: \"Cassio Zen\", address: \"5 Hanover Sqr\", bookedRoom: null }\n    })).to.deep.equal({\n      user: { name: \"Cassio Zen\", address: \"5 Hanover Sqr\", bookedRoom: null },\n      rooms: []\n    });\n  });\n\n  it(\"should handle GOT_ROOMS\", () => {\n    (0, _chai.expect)((0, _reducer2.default)({ user: {}, rooms: [] }, {\n      type: _reducer.GOT_ROOMS,\n      payload: [{\n        id: \"stdct\",\n        name: \"City View Standard Room\",\n        description: \"1 Queen bed\",\n        booked: false\n      }, {\n        id: \"stdoc\",\n        name: \"Ocean View Standard Room\",\n        description: \"1 Queen bed\",\n        booked: false\n      }, {\n        id: \"dlxct\",\n        name: \"Deluxe Room, City View\",\n        description: \"2 Double beds\",\n        booked: false\n      }]\n    })).to.deep.equal({\n      user: {},\n      rooms: [{\n        id: \"stdct\",\n        name: \"City View Standard Room\",\n        description: \"1 Queen bed\",\n        booked: false\n      }, {\n        id: \"stdoc\",\n        name: \"Ocean View Standard Room\",\n        description: \"1 Queen bed\",\n        booked: false\n      }, {\n        id: \"dlxct\",\n        name: \"Deluxe Room, City View\",\n        description: \"2 Double beds\",\n        booked: false\n      }]\n    });\n  });\n\n  it(\"should handle BOOK_ROOM\", () => {\n    (0, _chai.expect)((0, _reducer2.default)({\n      user: { name: \"Cassio Zen\", address: \"5 Hanover Sqr\", bookedRoom: null },\n      rooms: [{\n        id: \"stdct\",\n        name: \"City View Standard Room\",\n        description: \"1 Queen bed\",\n        booked: false\n      }, {\n        id: \"stdoc\",\n        name: \"Ocean View Standard Room\",\n        description: \"1 Queen bed\",\n        booked: false\n      }, {\n        id: \"dlxct\",\n        name: \"Deluxe Room, City View\",\n        description: \"2 Double beds\",\n        booked: false\n      }]\n    }, {\n      type: _reducer.BOOK_ROOM,\n      roomId: \"dlxct\"\n    })).to.deep.equal({\n      user: { name: \"Cassio Zen\", address: \"5 Hanover Sqr\", bookedRoom: \"dlxct\" },\n      rooms: [{\n        id: \"stdct\",\n        name: \"City View Standard Room\",\n        description: \"1 Queen bed\",\n        booked: false\n      }, {\n        id: \"stdoc\",\n        name: \"Ocean View Standard Room\",\n        description: \"1 Queen bed\",\n        booked: false\n      }, {\n        id: \"dlxct\",\n        name: \"Deluxe Room, City View\",\n        description: \"2 Double beds\",\n        booked: true\n      }]\n    });\n  });\n});\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlZHVjZXIuc3BlYy5qcyJdLCJuYW1lcyI6WyJkZXNjcmliZSIsIml0IiwidW5kZWZpbmVkIiwidG8iLCJkZWVwIiwiZXF1YWwiLCJ1c2VyIiwicm9vbXMiLCJ0eXBlIiwicGF5bG9hZCIsIm5hbWUiLCJhZGRyZXNzIiwiYm9va2VkUm9vbSIsImlkIiwiZGVzY3JpcHRpb24iLCJib29rZWQiLCJyb29tSWQiXSwibWFwcGluZ3MiOiI7O0FBQUE7Ozs7QUFDQTs7OztBQUNBQSxTQUFTLFNBQVQsRUFBb0IsTUFBTTtBQUN4QkMsS0FBRyxpQ0FBSCxFQUFzQyxNQUFNO0FBQzFDLHNCQUFPLHVCQUFRQyxTQUFSLEVBQW1CLEVBQW5CLENBQVAsRUFBK0JDLEVBQS9CLENBQWtDQyxJQUFsQyxDQUF1Q0MsS0FBdkMsQ0FBNkM7QUFDM0NDLFlBQU0sRUFEcUM7QUFFM0NDLGFBQU87QUFGb0MsS0FBN0M7QUFJRCxHQUxEOztBQU9BTixLQUFHLDZCQUFILEVBQWtDLE1BQU07QUFDdEMsc0JBQ0UsdUJBQ0UsRUFBRUssTUFBTSxFQUFSLEVBQVlDLE9BQU8sRUFBbkIsRUFERixFQUVFO0FBQ0VDLGtDQURGO0FBRUVDLGVBQVMsRUFBRUMsTUFBTSxZQUFSLEVBQXNCQyxTQUFTLGVBQS9CLEVBQWdEQyxZQUFZLElBQTVEO0FBRlgsS0FGRixDQURGLEVBUUVULEVBUkYsQ0FRS0MsSUFSTCxDQVFVQyxLQVJWLENBUWdCO0FBQ2RDLFlBQU0sRUFBRUksTUFBTSxZQUFSLEVBQXNCQyxTQUFTLGVBQS9CLEVBQWdEQyxZQUFZLElBQTVELEVBRFE7QUFFZEwsYUFBTztBQUZPLEtBUmhCO0FBWUQsR0FiRDs7QUFlQU4sS0FBRyx5QkFBSCxFQUE4QixNQUFNO0FBQ2xDLHNCQUNFLHVCQUNFLEVBQUVLLE1BQU0sRUFBUixFQUFZQyxPQUFPLEVBQW5CLEVBREYsRUFFRTtBQUNFQyw4QkFERjtBQUVFQyxlQUFTLENBQ1A7QUFDRUksWUFBSSxPQUROO0FBRUVILGNBQU0seUJBRlI7QUFHRUkscUJBQWEsYUFIZjtBQUlFQyxnQkFBUTtBQUpWLE9BRE8sRUFPUDtBQUNFRixZQUFJLE9BRE47QUFFRUgsY0FBTSwwQkFGUjtBQUdFSSxxQkFBYSxhQUhmO0FBSUVDLGdCQUFRO0FBSlYsT0FQTyxFQWFQO0FBQ0VGLFlBQUksT0FETjtBQUVFSCxjQUFNLHdCQUZSO0FBR0VJLHFCQUFhLGVBSGY7QUFJRUMsZ0JBQVE7QUFKVixPQWJPO0FBRlgsS0FGRixDQURGLEVBMkJFWixFQTNCRixDQTJCS0MsSUEzQkwsQ0EyQlVDLEtBM0JWLENBMkJnQjtBQUNkQyxZQUFNLEVBRFE7QUFFZEMsYUFBTyxDQUNMO0FBQ0VNLFlBQUksT0FETjtBQUVFSCxjQUFNLHlCQUZSO0FBR0VJLHFCQUFhLGFBSGY7QUFJRUMsZ0JBQVE7QUFKVixPQURLLEVBT0w7QUFDRUYsWUFBSSxPQUROO0FBRUVILGNBQU0sMEJBRlI7QUFHRUkscUJBQWEsYUFIZjtBQUlFQyxnQkFBUTtBQUpWLE9BUEssRUFhTDtBQUNFRixZQUFJLE9BRE47QUFFRUgsY0FBTSx3QkFGUjtBQUdFSSxxQkFBYSxlQUhmO0FBSUVDLGdCQUFRO0FBSlYsT0FiSztBQUZPLEtBM0JoQjtBQWtERCxHQW5ERDs7QUFxREFkLEtBQUcseUJBQUgsRUFBOEIsTUFBTTtBQUNsQyxzQkFDRSx1QkFDRTtBQUNFSyxZQUFNLEVBQUVJLE1BQU0sWUFBUixFQUFzQkMsU0FBUyxlQUEvQixFQUFnREMsWUFBWSxJQUE1RCxFQURSO0FBRUVMLGFBQU8sQ0FDTDtBQUNFTSxZQUFJLE9BRE47QUFFRUgsY0FBTSx5QkFGUjtBQUdFSSxxQkFBYSxhQUhmO0FBSUVDLGdCQUFRO0FBSlYsT0FESyxFQU9MO0FBQ0VGLFlBQUksT0FETjtBQUVFSCxjQUFNLDBCQUZSO0FBR0VJLHFCQUFhLGFBSGY7QUFJRUMsZ0JBQVE7QUFKVixPQVBLLEVBYUw7QUFDRUYsWUFBSSxPQUROO0FBRUVILGNBQU0sd0JBRlI7QUFHRUkscUJBQWEsZUFIZjtBQUlFQyxnQkFBUTtBQUpWLE9BYks7QUFGVCxLQURGLEVBd0JFO0FBQ0VQLDhCQURGO0FBRUVRLGNBQVE7QUFGVixLQXhCRixDQURGLEVBOEJFYixFQTlCRixDQThCS0MsSUE5QkwsQ0E4QlVDLEtBOUJWLENBOEJnQjtBQUNkQyxZQUFNLEVBQUVJLE1BQU0sWUFBUixFQUFzQkMsU0FBUyxlQUEvQixFQUFnREMsWUFBWSxPQUE1RCxFQURRO0FBRWRMLGFBQU8sQ0FDTDtBQUNFTSxZQUFJLE9BRE47QUFFRUgsY0FBTSx5QkFGUjtBQUdFSSxxQkFBYSxhQUhmO0FBSUVDLGdCQUFRO0FBSlYsT0FESyxFQU9MO0FBQ0VGLFlBQUksT0FETjtBQUVFSCxjQUFNLDBCQUZSO0FBR0VJLHFCQUFhLGFBSGY7QUFJRUMsZ0JBQVE7QUFKVixPQVBLLEVBYUw7QUFDRUYsWUFBSSxPQUROO0FBRUVILGNBQU0sd0JBRlI7QUFHRUkscUJBQWEsZUFIZjtBQUlFQyxnQkFBUTtBQUpWLE9BYks7QUFGTyxLQTlCaEI7QUFxREQsR0F0REQ7QUF1REQsQ0FuSUQiLCJmaWxlIjoicmVkdWNlci5zcGVjLmpzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy95aS1ydWRpbmcvTGFiLkNvbWJpbmVSZWR1Y2VycyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCByZWR1Y2VyLCB7IEFVVEhFTlRJQ0FURUQsIEdPVF9ST09NUywgQk9PS19ST09NIH0gZnJvbSBcIi4vcmVkdWNlclwiO1xuaW1wb3J0IHsgZXhwZWN0IH0gZnJvbSBcImNoYWlcIjtcbmRlc2NyaWJlKFwiUmVkdWNlclwiLCAoKSA9PiB7XG4gIGl0KFwic2hvdWxkIHJldHVybiB0aGUgaW5pdGlhbCBzdGF0ZVwiLCAoKSA9PiB7XG4gICAgZXhwZWN0KHJlZHVjZXIodW5kZWZpbmVkLCB7fSkpLnRvLmRlZXAuZXF1YWwoe1xuICAgICAgdXNlcjoge30sXG4gICAgICByb29tczogW11cbiAgICB9KTtcbiAgfSk7XG5cbiAgaXQoXCJzaG91bGQgaGFuZGxlIEFVVEhFTlRJQ0FURURcIiwgKCkgPT4ge1xuICAgIGV4cGVjdChcbiAgICAgIHJlZHVjZXIoXG4gICAgICAgIHsgdXNlcjoge30sIHJvb21zOiBbXSB9LFxuICAgICAgICB7XG4gICAgICAgICAgdHlwZTogQVVUSEVOVElDQVRFRCxcbiAgICAgICAgICBwYXlsb2FkOiB7IG5hbWU6IFwiQ2Fzc2lvIFplblwiLCBhZGRyZXNzOiBcIjUgSGFub3ZlciBTcXJcIiwgYm9va2VkUm9vbTogbnVsbCB9XG4gICAgICAgIH1cbiAgICAgIClcbiAgICApLnRvLmRlZXAuZXF1YWwoe1xuICAgICAgdXNlcjogeyBuYW1lOiBcIkNhc3NpbyBaZW5cIiwgYWRkcmVzczogXCI1IEhhbm92ZXIgU3FyXCIsIGJvb2tlZFJvb206IG51bGwgfSxcbiAgICAgIHJvb21zOiBbXVxuICAgIH0pO1xuICB9KTtcblxuICBpdChcInNob3VsZCBoYW5kbGUgR09UX1JPT01TXCIsICgpID0+IHtcbiAgICBleHBlY3QoXG4gICAgICByZWR1Y2VyKFxuICAgICAgICB7IHVzZXI6IHt9LCByb29tczogW10gfSxcbiAgICAgICAge1xuICAgICAgICAgIHR5cGU6IEdPVF9ST09NUyxcbiAgICAgICAgICBwYXlsb2FkOiBbXG4gICAgICAgICAgICB7XG4gICAgICAgICAgICAgIGlkOiBcInN0ZGN0XCIsXG4gICAgICAgICAgICAgIG5hbWU6IFwiQ2l0eSBWaWV3IFN0YW5kYXJkIFJvb21cIixcbiAgICAgICAgICAgICAgZGVzY3JpcHRpb246IFwiMSBRdWVlbiBiZWRcIixcbiAgICAgICAgICAgICAgYm9va2VkOiBmYWxzZVxuICAgICAgICAgICAgfSxcbiAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgaWQ6IFwic3Rkb2NcIixcbiAgICAgICAgICAgICAgbmFtZTogXCJPY2VhbiBWaWV3IFN0YW5kYXJkIFJvb21cIixcbiAgICAgICAgICAgICAgZGVzY3JpcHRpb246IFwiMSBRdWVlbiBiZWRcIixcbiAgICAgICAgICAgICAgYm9va2VkOiBmYWxzZVxuICAgICAgICAgICAgfSxcbiAgICAgICAgICAgIHtcbiAgICAgICAgICAgICAgaWQ6IFwiZGx4Y3RcIixcbiAgICAgICAgICAgICAgbmFtZTogXCJEZWx1eGUgUm9vbSwgQ2l0eSBWaWV3XCIsXG4gICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiBcIjIgRG91YmxlIGJlZHNcIixcbiAgICAgICAgICAgICAgYm9va2VkOiBmYWxzZVxuICAgICAgICAgICAgfVxuICAgICAgICAgIF1cbiAgICAgICAgfVxuICAgICAgKVxuICAgICkudG8uZGVlcC5lcXVhbCh7XG4gICAgICB1c2VyOiB7fSxcbiAgICAgIHJvb21zOiBbXG4gICAgICAgIHtcbiAgICAgICAgICBpZDogXCJzdGRjdFwiLFxuICAgICAgICAgIG5hbWU6IFwiQ2l0eSBWaWV3IFN0YW5kYXJkIFJvb21cIixcbiAgICAgICAgICBkZXNjcmlwdGlvbjogXCIxIFF1ZWVuIGJlZFwiLFxuICAgICAgICAgIGJvb2tlZDogZmFsc2VcbiAgICAgICAgfSxcbiAgICAgICAge1xuICAgICAgICAgIGlkOiBcInN0ZG9jXCIsXG4gICAgICAgICAgbmFtZTogXCJPY2VhbiBWaWV3IFN0YW5kYXJkIFJvb21cIixcbiAgICAgICAgICBkZXNjcmlwdGlvbjogXCIxIFF1ZWVuIGJlZFwiLFxuICAgICAgICAgIGJvb2tlZDogZmFsc2VcbiAgICAgICAgfSxcbiAgICAgICAge1xuICAgICAgICAgIGlkOiBcImRseGN0XCIsXG4gICAgICAgICAgbmFtZTogXCJEZWx1eGUgUm9vbSwgQ2l0eSBWaWV3XCIsXG4gICAgICAgICAgZGVzY3JpcHRpb246IFwiMiBEb3VibGUgYmVkc1wiLFxuICAgICAgICAgIGJvb2tlZDogZmFsc2VcbiAgICAgICAgfVxuICAgICAgXVxuICAgIH0pO1xuICB9KTtcblxuICBpdChcInNob3VsZCBoYW5kbGUgQk9PS19ST09NXCIsICgpID0+IHtcbiAgICBleHBlY3QoXG4gICAgICByZWR1Y2VyKFxuICAgICAgICB7XG4gICAgICAgICAgdXNlcjogeyBuYW1lOiBcIkNhc3NpbyBaZW5cIiwgYWRkcmVzczogXCI1IEhhbm92ZXIgU3FyXCIsIGJvb2tlZFJvb206IG51bGwgfSxcbiAgICAgICAgICByb29tczogW1xuICAgICAgICAgICAge1xuICAgICAgICAgICAgICBpZDogXCJzdGRjdFwiLFxuICAgICAgICAgICAgICBuYW1lOiBcIkNpdHkgVmlldyBTdGFuZGFyZCBSb29tXCIsXG4gICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiBcIjEgUXVlZW4gYmVkXCIsXG4gICAgICAgICAgICAgIGJvb2tlZDogZmFsc2VcbiAgICAgICAgICAgIH0sXG4gICAgICAgICAgICB7XG4gICAgICAgICAgICAgIGlkOiBcInN0ZG9jXCIsXG4gICAgICAgICAgICAgIG5hbWU6IFwiT2NlYW4gVmlldyBTdGFuZGFyZCBSb29tXCIsXG4gICAgICAgICAgICAgIGRlc2NyaXB0aW9uOiBcIjEgUXVlZW4gYmVkXCIsXG4gICAgICAgICAgICAgIGJvb2tlZDogZmFsc2VcbiAgICAgICAgICAgIH0sXG4gICAgICAgICAgICB7XG4gICAgICAgICAgICAgIGlkOiBcImRseGN0XCIsXG4gICAgICAgICAgICAgIG5hbWU6IFwiRGVsdXhlIFJvb20sIENpdHkgVmlld1wiLFxuICAgICAgICAgICAgICBkZXNjcmlwdGlvbjogXCIyIERvdWJsZSBiZWRzXCIsXG4gICAgICAgICAgICAgIGJvb2tlZDogZmFsc2VcbiAgICAgICAgICAgIH1cbiAgICAgICAgICBdXG4gICAgICAgIH0sXG4gICAgICAgIHtcbiAgICAgICAgICB0eXBlOiBCT09LX1JPT00sXG4gICAgICAgICAgcm9vbUlkOiBcImRseGN0XCJcbiAgICAgICAgfVxuICAgICAgKVxuICAgICkudG8uZGVlcC5lcXVhbCh7XG4gICAgICB1c2VyOiB7IG5hbWU6IFwiQ2Fzc2lvIFplblwiLCBhZGRyZXNzOiBcIjUgSGFub3ZlciBTcXJcIiwgYm9va2VkUm9vbTogXCJkbHhjdFwiIH0sXG4gICAgICByb29tczogW1xuICAgICAgICB7XG4gICAgICAgICAgaWQ6IFwic3RkY3RcIixcbiAgICAgICAgICBuYW1lOiBcIkNpdHkgVmlldyBTdGFuZGFyZCBSb29tXCIsXG4gICAgICAgICAgZGVzY3JpcHRpb246IFwiMSBRdWVlbiBiZWRcIixcbiAgICAgICAgICBib29rZWQ6IGZhbHNlXG4gICAgICAgIH0sXG4gICAgICAgIHtcbiAgICAgICAgICBpZDogXCJzdGRvY1wiLFxuICAgICAgICAgIG5hbWU6IFwiT2NlYW4gVmlldyBTdGFuZGFyZCBSb29tXCIsXG4gICAgICAgICAgZGVzY3JpcHRpb246IFwiMSBRdWVlbiBiZWRcIixcbiAgICAgICAgICBib29rZWQ6IGZhbHNlXG4gICAgICAgIH0sXG4gICAgICAgIHtcbiAgICAgICAgICBpZDogXCJkbHhjdFwiLFxuICAgICAgICAgIG5hbWU6IFwiRGVsdXhlIFJvb20sIENpdHkgVmlld1wiLFxuICAgICAgICAgIGRlc2NyaXB0aW9uOiBcIjIgRG91YmxlIGJlZHNcIixcbiAgICAgICAgICBib29rZWQ6IHRydWVcbiAgICAgICAgfVxuICAgICAgXVxuICAgIH0pO1xuICB9KTtcbn0pO1xuIl19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "reducer.spec.js"
+      ],
+      "names": [
+        "describe",
+        "it",
+        "undefined",
+        "to",
+        "deep",
+        "equal",
+        "user",
+        "rooms",
+        "type",
+        "payload",
+        "name",
+        "address",
+        "bookedRoom",
+        "id",
+        "description",
+        "booked",
+        "roomId"
+      ],
+      "mappings": "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",
+      "file": "reducer.spec.js",
+      "sourceRoot": "/Users/yi-ruding/Lab.CombineReducers",
+      "sourcesContent": [
+        "import reducer, { AUTHENTICATED, GOT_ROOMS, BOOK_ROOM } from \"./reducer\";\nimport { expect } from \"chai\";\ndescribe(\"Reducer\", () => {\n  it(\"should return the initial state\", () => {\n    expect(reducer(undefined, {})).to.deep.equal({\n      user: {},\n      rooms: []\n    });\n  });\n\n  it(\"should handle AUTHENTICATED\", () => {\n    expect(\n      reducer(\n        { user: {}, rooms: [] },\n        {\n          type: AUTHENTICATED,\n          payload: { name: \"Cassio Zen\", address: \"5 Hanover Sqr\", bookedRoom: null }\n        }\n      )\n    ).to.deep.equal({\n      user: { name: \"Cassio Zen\", address: \"5 Hanover Sqr\", bookedRoom: null },\n      rooms: []\n    });\n  });\n\n  it(\"should handle GOT_ROOMS\", () => {\n    expect(\n      reducer(\n        { user: {}, rooms: [] },\n        {\n          type: GOT_ROOMS,\n          payload: [\n            {\n              id: \"stdct\",\n              name: \"City View Standard Room\",\n              description: \"1 Queen bed\",\n              booked: false\n            },\n            {\n              id: \"stdoc\",\n              name: \"Ocean View Standard Room\",\n              description: \"1 Queen bed\",\n              booked: false\n            },\n            {\n              id: \"dlxct\",\n              name: \"Deluxe Room, City View\",\n              description: \"2 Double beds\",\n              booked: false\n            }\n          ]\n        }\n      )\n    ).to.deep.equal({\n      user: {},\n      rooms: [\n        {\n          id: \"stdct\",\n          name: \"City View Standard Room\",\n          description: \"1 Queen bed\",\n          booked: false\n        },\n        {\n          id: \"stdoc\",\n          name: \"Ocean View Standard Room\",\n          description: \"1 Queen bed\",\n          booked: false\n        },\n        {\n          id: \"dlxct\",\n          name: \"Deluxe Room, City View\",\n          description: \"2 Double beds\",\n          booked: false\n        }\n      ]\n    });\n  });\n\n  it(\"should handle BOOK_ROOM\", () => {\n    expect(\n      reducer(\n        {\n          user: { name: \"Cassio Zen\", address: \"5 Hanover Sqr\", bookedRoom: null },\n          rooms: [\n            {\n              id: \"stdct\",\n              name: \"City View Standard Room\",\n              description: \"1 Queen bed\",\n              booked: false\n            },\n            {\n              id: \"stdoc\",\n              name: \"Ocean View Standard Room\",\n              description: \"1 Queen bed\",\n              booked: false\n            },\n            {\n              id: \"dlxct\",\n              name: \"Deluxe Room, City View\",\n              description: \"2 Double beds\",\n              booked: false\n            }\n          ]\n        },\n        {\n          type: BOOK_ROOM,\n          roomId: \"dlxct\"\n        }\n      )\n    ).to.deep.equal({\n      user: { name: \"Cassio Zen\", address: \"5 Hanover Sqr\", bookedRoom: \"dlxct\" },\n      rooms: [\n        {\n          id: \"stdct\",\n          name: \"City View Standard Room\",\n          description: \"1 Queen bed\",\n          booked: false\n        },\n        {\n          id: \"stdoc\",\n          name: \"Ocean View Standard Room\",\n          description: \"1 Queen bed\",\n          booked: false\n        },\n        {\n          id: \"dlxct\",\n          name: \"Deluxe Room, City View\",\n          description: \"2 Double beds\",\n          booked: true\n        }\n      ]\n    });\n  });\n});\n"
+      ]
+    },
+    "mtime": 1615921830090
+  },
+  "{\"filename\":\"/Users/yi-ruding/Lab.CombineReducers/reducer.js\",\"env\":{},\"retainLines\":false,\"highlightCode\":true,\"suppressDeprecationMessages\":false,\"presets\":[],\"plugins\":[[[],{\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],{\"spec\":false,\"loose\":false}],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null],[[],null]],\"ignore\":[],\"code\":true,\"metadata\":true,\"ast\":true,\"comments\":true,\"compact\":\"auto\",\"minified\":false,\"sourceRoot\":\"/Users/yi-ruding/Lab.CombineReducers\",\"babelrc\":true,\"sourceType\":\"module\",\"moduleIds\":false,\"passPerPreset\":false,\"parserOpts\":false,\"generatorOpts\":false}:6.26.0": {
+    "metadata": {
+      "usedHelpers": [
+        "extends"
+      ],
+      "marked": [],
+      "modules": {
+        "imports": [
+          {
+            "source": "redux",
+            "imported": [
+              "combineReducers",
+              "createStore"
+            ],
+            "specifiers": [
+              {
+                "kind": "named",
+                "imported": "combineReducers",
+                "local": "combineReducers"
+              },
+              {
+                "kind": "named",
+                "imported": "createStore",
+                "local": "createStore"
+              }
+            ]
+          }
+        ],
+        "exports": {
+          "exported": [
+            "AUTHENTICATED",
+            "GOT_ROOMS",
+            "BOOK_ROOM"
+          ],
+          "specifiers": [
+            {
+              "kind": "local",
+              "local": "AUTHENTICATED",
+              "exported": "AUTHENTICATED"
+            },
+            {
+              "kind": "local",
+              "local": "GOT_ROOMS",
+              "exported": "GOT_ROOMS"
+            },
+            {
+              "kind": "local",
+              "local": "BOOK_ROOM",
+              "exported": "BOOK_ROOM"
+            }
+          ]
+        }
+      }
+    },
+    "options": {
+      "filename": "/Users/yi-ruding/Lab.CombineReducers/reducer.js",
+      "filenameRelative": "/Users/yi-ruding/Lab.CombineReducers/reducer.js",
+      "env": {},
+      "retainLines": false,
+      "highlightCode": true,
+      "suppressDeprecationMessages": false,
+      "presets": [],
+      "plugins": [
+        [
+          [],
+          {
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          {
+            "spec": false,
+            "loose": false
+          }
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ],
+        [
+          [],
+          null
+        ]
+      ],
+      "ignore": [],
+      "code": true,
+      "metadata": true,
+      "ast": false,
+      "comments": true,
+      "compact": "auto",
+      "minified": false,
+      "sourceMaps": "both",
+      "sourceMapTarget": "reducer.js",
+      "sourceFileName": "reducer.js",
+      "sourceRoot": "/Users/yi-ruding/Lab.CombineReducers",
+      "babelrc": false,
+      "sourceType": "module",
+      "moduleRoot": "/Users/yi-ruding/Lab.CombineReducers",
+      "moduleIds": false,
+      "passPerPreset": false,
+      "parserOpts": false,
+      "generatorOpts": false,
+      "basename": "reducer"
+    },
+    "ignored": false,
+    "code": "\"use strict\";\n\nObject.defineProperty(exports, \"__esModule\", {\n  value: true\n});\nexports.BOOK_ROOM = exports.GOT_ROOMS = exports.AUTHENTICATED = undefined;\n\nvar _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };\n\nvar _redux = require(\"redux\");\n\nconst AUTHENTICATED = exports.AUTHENTICATED = \"AUTHENTICATED\";\nconst GOT_ROOMS = exports.GOT_ROOMS = \"GOT_ROOMS\";\nconst BOOK_ROOM = exports.BOOK_ROOM = \"BOOK_ROOM\";\n\nconst userReducer = (user = {}, action) => {\n  if (action.type === AUTHENTICATED) {\n    user = action.payload;\n  }\n\n  if (action.type === BOOK_ROOM) {\n    user = _extends({}, user, { bookedRoom: action.roomId });\n  }return user;\n};\n\nconst roomReducer = (rooms = [], action) => {\n  if (action.type === GOT_ROOMS) {\n    return action.payload;\n  }\n\n  if (action.type === BOOK_ROOM) {\n    const updatedRooms = rooms.map(room => {\n      if (room.id === action.roomId) {\n        return _extends({}, room, { booked: true });\n      } else {\n        return room;\n      }\n    });\n    return updatedRooms;\n  }\n  return rooms;\n};\n\nconst reducer = (0, _redux.combineReducers)({\n  user: userReducer,\n  rooms: roomReducer\n});\n\n// const store = createStore(reducer);\n\nexports.default = reducer;\n//# sourceMappingURL=data:application/json;charset=utf-8;base64,eyJ2ZXJzaW9uIjozLCJzb3VyY2VzIjpbInJlZHVjZXIuanMiXSwibmFtZXMiOlsiQVVUSEVOVElDQVRFRCIsIkdPVF9ST09NUyIsIkJPT0tfUk9PTSIsInVzZXJSZWR1Y2VyIiwidXNlciIsImFjdGlvbiIsInR5cGUiLCJwYXlsb2FkIiwiYm9va2VkUm9vbSIsInJvb21JZCIsInJvb21SZWR1Y2VyIiwicm9vbXMiLCJ1cGRhdGVkUm9vbXMiLCJtYXAiLCJyb29tIiwiaWQiLCJib29rZWQiLCJyZWR1Y2VyIl0sIm1hcHBpbmdzIjoiOzs7Ozs7Ozs7QUFBQTs7QUFFTyxNQUFNQSx3Q0FBZ0IsZUFBdEI7QUFDQSxNQUFNQyxnQ0FBWSxXQUFsQjtBQUNBLE1BQU1DLGdDQUFZLFdBQWxCOztBQUVQLE1BQU1DLGNBQWMsQ0FBQ0MsT0FBSyxFQUFOLEVBQVNDLE1BQVQsS0FBa0I7QUFDcEMsTUFBR0EsT0FBT0MsSUFBUCxLQUFnQk4sYUFBbkIsRUFBaUM7QUFDL0JJLFdBQU9DLE9BQU9FLE9BQWQ7QUFDRDs7QUFFRCxNQUFHRixPQUFPQyxJQUFQLEtBQWdCSixTQUFuQixFQUE2QjtBQUN6QkUsd0JBQVdBLElBQVgsSUFBaUJJLFlBQVlILE9BQU9JLE1BQXBDO0FBQ0gsR0FBQyxPQUFPTCxJQUFQO0FBQ0gsQ0FSRDs7QUFVQSxNQUFNTSxjQUFjLENBQUNDLFFBQU0sRUFBUCxFQUFVTixNQUFWLEtBQW1CO0FBQ3JDLE1BQUdBLE9BQU9DLElBQVAsS0FBZ0JMLFNBQW5CLEVBQTZCO0FBQzNCLFdBQU9JLE9BQU9FLE9BQWQ7QUFDRDs7QUFFRCxNQUFHRixPQUFPQyxJQUFQLEtBQWdCSixTQUFuQixFQUE2QjtBQUMzQixVQUFNVSxlQUFlRCxNQUFNRSxHQUFOLENBQVVDLFFBQVE7QUFDckMsVUFBSUEsS0FBS0MsRUFBTCxLQUFZVixPQUFPSSxNQUF2QixFQUErQjtBQUM3Qiw0QkFBV0ssSUFBWCxJQUFpQkUsUUFBUSxJQUF6QjtBQUNELE9BRkQsTUFFTztBQUNMLGVBQU9GLElBQVA7QUFDRDtBQUNGLEtBTm9CLENBQXJCO0FBT0EsV0FBT0YsWUFBUDtBQUNEO0FBQ0QsU0FBT0QsS0FBUDtBQUNELENBaEJEOztBQWtCQSxNQUFNTSxVQUFVLDRCQUFnQjtBQUM5QmIsUUFBTUQsV0FEd0I7QUFFOUJRLFNBQU1EO0FBRndCLENBQWhCLENBQWhCOztBQUtBOztrQkFFZU8sTyIsImZpbGUiOiJyZWR1Y2VyLmpzIiwic291cmNlUm9vdCI6Ii9Vc2Vycy95aS1ydWRpbmcvTGFiLkNvbWJpbmVSZWR1Y2VycyIsInNvdXJjZXNDb250ZW50IjpbImltcG9ydCB7IGNvbWJpbmVSZWR1Y2VycywgY3JlYXRlU3RvcmUgfSBmcm9tIFwicmVkdXhcIjtcblxuZXhwb3J0IGNvbnN0IEFVVEhFTlRJQ0FURUQgPSBcIkFVVEhFTlRJQ0FURURcIjtcbmV4cG9ydCBjb25zdCBHT1RfUk9PTVMgPSBcIkdPVF9ST09NU1wiO1xuZXhwb3J0IGNvbnN0IEJPT0tfUk9PTSA9IFwiQk9PS19ST09NXCI7XG5cbmNvbnN0IHVzZXJSZWR1Y2VyID0gKHVzZXI9e30sYWN0aW9uKT0+e1xuICBpZihhY3Rpb24udHlwZSA9PT0gQVVUSEVOVElDQVRFRCl7XG4gICAgdXNlciA9IGFjdGlvbi5wYXlsb2FkIDtcbiAgfVxuXG4gIGlmKGFjdGlvbi50eXBlID09PSBCT09LX1JPT00pe1xuICAgICAgdXNlciA9IHsuLi51c2VyLCBib29rZWRSb29tOiBhY3Rpb24ucm9vbUlkfTsgICAgXG4gIH0gcmV0dXJuIHVzZXI7IFxufVxuXG5jb25zdCByb29tUmVkdWNlciA9IChyb29tcz1bXSxhY3Rpb24pPT57XG4gIGlmKGFjdGlvbi50eXBlID09PSBHT1RfUk9PTVMpe1xuICAgIHJldHVybiBhY3Rpb24ucGF5bG9hZDtcbiAgfVxuIFxuICBpZihhY3Rpb24udHlwZSA9PT0gQk9PS19ST09NKXtcbiAgICBjb25zdCB1cGRhdGVkUm9vbXMgPSByb29tcy5tYXAocm9vbSA9PiB7XG4gICAgICBpZiAocm9vbS5pZCA9PT0gYWN0aW9uLnJvb21JZCkge1xuICAgICAgICByZXR1cm4gey4uLnJvb20sIGJvb2tlZDogdHJ1ZX07XG4gICAgICB9IGVsc2Uge1xuICAgICAgICByZXR1cm4gcm9vbTtcbiAgICAgIH0gXG4gICAgfSk7ICBcbiAgICByZXR1cm4gdXBkYXRlZFJvb21zO1xuICB9XG4gIHJldHVybiByb29tcztcbn1cblxuY29uc3QgcmVkdWNlciA9IGNvbWJpbmVSZWR1Y2Vycyh7XG4gIHVzZXI6IHVzZXJSZWR1Y2VyLFxuICByb29tczpyb29tUmVkdWNlclxufSk7XG5cbi8vIGNvbnN0IHN0b3JlID0gY3JlYXRlU3RvcmUocmVkdWNlcik7XG5cbmV4cG9ydCBkZWZhdWx0IHJlZHVjZXI7Il19",
+    "ast": null,
+    "map": {
+      "version": 3,
+      "sources": [
+        "reducer.js"
+      ],
+      "names": [
+        "AUTHENTICATED",
+        "GOT_ROOMS",
+        "BOOK_ROOM",
+        "userReducer",
+        "user",
+        "action",
+        "type",
+        "payload",
+        "bookedRoom",
+        "roomId",
+        "roomReducer",
+        "rooms",
+        "updatedRooms",
+        "map",
+        "room",
+        "id",
+        "booked",
+        "reducer"
+      ],
+      "mappings": ";;;;;;;;;AAAA;;AAEO,MAAMA,wCAAgB,eAAtB;AACA,MAAMC,gCAAY,WAAlB;AACA,MAAMC,gCAAY,WAAlB;;AAEP,MAAMC,cAAc,CAACC,OAAK,EAAN,EAASC,MAAT,KAAkB;AACpC,MAAGA,OAAOC,IAAP,KAAgBN,aAAnB,EAAiC;AAC/BI,WAAOC,OAAOE,OAAd;AACD;;AAED,MAAGF,OAAOC,IAAP,KAAgBJ,SAAnB,EAA6B;AACzBE,wBAAWA,IAAX,IAAiBI,YAAYH,OAAOI,MAApC;AACH,GAAC,OAAOL,IAAP;AACH,CARD;;AAUA,MAAMM,cAAc,CAACC,QAAM,EAAP,EAAUN,MAAV,KAAmB;AACrC,MAAGA,OAAOC,IAAP,KAAgBL,SAAnB,EAA6B;AAC3B,WAAOI,OAAOE,OAAd;AACD;;AAED,MAAGF,OAAOC,IAAP,KAAgBJ,SAAnB,EAA6B;AAC3B,UAAMU,eAAeD,MAAME,GAAN,CAAUC,QAAQ;AACrC,UAAIA,KAAKC,EAAL,KAAYV,OAAOI,MAAvB,EAA+B;AAC7B,4BAAWK,IAAX,IAAiBE,QAAQ,IAAzB;AACD,OAFD,MAEO;AACL,eAAOF,IAAP;AACD;AACF,KANoB,CAArB;AAOA,WAAOF,YAAP;AACD;AACD,SAAOD,KAAP;AACD,CAhBD;;AAkBA,MAAMM,UAAU,4BAAgB;AAC9Bb,QAAMD,WADwB;AAE9BQ,SAAMD;AAFwB,CAAhB,CAAhB;;AAKA;;kBAEeO,O",
+      "file": "reducer.js",
+      "sourceRoot": "/Users/yi-ruding/Lab.CombineReducers",
+      "sourcesContent": [
+        "import { combineReducers, createStore } from \"redux\";\n\nexport const AUTHENTICATED = \"AUTHENTICATED\";\nexport const GOT_ROOMS = \"GOT_ROOMS\";\nexport const BOOK_ROOM = \"BOOK_ROOM\";\n\nconst userReducer = (user={},action)=>{\n  if(action.type === AUTHENTICATED){\n    user = action.payload ;\n  }\n\n  if(action.type === BOOK_ROOM){\n      user = {...user, bookedRoom: action.roomId};    \n  } return user; \n}\n\nconst roomReducer = (rooms=[],action)=>{\n  if(action.type === GOT_ROOMS){\n    return action.payload;\n  }\n \n  if(action.type === BOOK_ROOM){\n    const updatedRooms = rooms.map(room => {\n      if (room.id === action.roomId) {\n        return {...room, booked: true};\n      } else {\n        return room;\n      } \n    });  \n    return updatedRooms;\n  }\n  return rooms;\n}\n\nconst reducer = combineReducers({\n  user: userReducer,\n  rooms:roomReducer\n});\n\n// const store = createStore(reducer);\n\nexport default reducer;"
+      ]
+    },
+    "mtime": 1615955573047
+  }
+}

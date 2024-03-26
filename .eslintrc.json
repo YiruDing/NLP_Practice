@@ -1,0 +1,7 @@
+{
+    "extends": "eslint:recommended",
+    "rules": {
+      "dot-notation": 1,
+      "valid-typeof": 2
+    }
+  }

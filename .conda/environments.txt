@@ -1,0 +1,3 @@
+/Users/yi-ruding/opt/anaconda3
+/Users/yi-ruding/opt/anaconda3/envs/NLP
+/Users/yi-ruding/opt/anaconda3/envs/nlp_course
